@@ -1,23 +1,23 @@
 <script context="module" lang="ts">
-    import type { ErrorLoad } from '@sveltejs/kit'
+	import type { ErrorLoad } from '@sveltejs/kit'
 
-    export const load: ErrorLoad = ({ error, status }) => {
-        return {
-            props: {
-                title: `${status}: ${error.message}`
-            }
-        }
-    }
+	export const load: ErrorLoad = ({ error, status }) => {
+		return {
+			props: {
+				title: `${status}: ${error.message}`
+			}
+		}
+	}
 </script>
 
 <script lang="ts">
-    export let title: string
+	export let title: string
 </script>
 
 <div class="error">
-    <h1>{ title }</h1>
-    <img src="/error.webp" alt="Surprised Cat">
-    <a href="/" class="btn">Back</a>
+	<h1>{title}</h1>
+	<img src="/error.webp" alt="Surprised Cat" />
+	<a href="/home" class="btn">Back</a>
 </div>
 
 <style>

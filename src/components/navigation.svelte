@@ -1,52 +1,50 @@
 <script lang="ts">
-    import { page } from '$app/stores'
-    import Icon from '$root/components/icon.svelte'
+	import { page } from '$app/stores'
+	import Icon from '$root/components/icon.svelte'
 
-    $: path = $page.url.pathname
+	$: path = $page.url.pathname
 </script>
 
 <aside>
-    <div class="container">
-        <nav>
-            <ul>
+	<div class="container">
+		<nav>
+			<ul>
+				<li>
+					<a href="/" class="logo">🐦️</a>
+				</li>
 
-                <li>
-                    <a href="/" class="logo">🐦️</a>
-                </li>
+				<li class:active={path === '/home'}>
+					<a href="/home" sveltekit:prefetch>
+						<Icon width="32" height="32" name="home" />
+						<span>Home</span>
+					</a>
+				</li>
 
-                <li class:active={path === '/home'}>
-                    <a href="/home">
-                        <Icon width="32" height="32" name="home" />
-                        <span>Home</span>
-                    </a>
-                </li>
-
-                <li class:active={path === '/home/profile/matia'}>
-					<a href="/home/profile/matia">
+				<li class:active={path === '/home/profile/matia'}>
+					<a href="/home/profile/matia" sveltekit:prefetch>
 						<Icon width="32" height="32" name="profile" />
 						<span>Profile</span>
 					</a>
 				</li>
 
-                <li class:active={path === '/settings'}>
-                    <a href="/home/settings">
-                        <Icon width="32" height="32" name="settings" />
-                        <span>Settings</span>
-                    </a>
-                </li>
+				<li class:active={path === '/settings'}>
+					<a href="/home/settings" sveltekit:prefetch>
+						<Icon width="32" height="32" name="settings" />
+						<span>Settings</span>
+					</a>
+				</li>
 
-                <li class:active={path === '/home/about'}>
-					<a href="/home/about">
+				<li class:active={path === '/home/about'}>
+					<a href="/home/about" sveltekit:prefetch>
 						<Icon width="32" height="32" name="about" />
 						<span>About</span>
 					</a>
 				</li>
+			</ul>
+		</nav>
 
-            </ul>
-        </nav>
-
-        <button class="btn tweet">Tweet</button>
-    </div>
+		<button class="btn tweet">Tweet</button>
+	</div>
 </aside>
 
 <style>
